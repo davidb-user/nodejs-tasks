@@ -1,9 +1,9 @@
 {
-    "compilerOptions": {
-      "target": "es6",
-      "allowSyntheticDefaultImports": true,
-      "esModuleInterop": true,
-      "moduleResolution": "node",
-      "sourceMap": true
-    }
+  "compilerOptions": {
+    "target": "es6",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "sourceMap": true
   }
+}

@@ -1,4 +1,7 @@
 import dotenv from "dotenv";
+import Joi from "joi";
+import joi from "joi";
+import { ErrorHandler } from "./errorHandler";
 
 interface EnvironmentVariables {
   PORT: string;
@@ -17,7 +20,19 @@ export class Config {
   }
 
   private static init() {
-    this._isInitiated = true;
+    const schema = Joi.object<EnvironmentVariables>({
+      HOST: Joi.string().required(),
+      PORT: Joi.string().required(),
+    });
+
     dotenv.config();
+
+    const validationResult = schema.validate(process.env);
+
+    if (validationResult.error?.message) {
+      ErrorHandler.handle(new Error(validationResult.error.message));
+    }
+
+    this._isInitiated = true;
   }
 }

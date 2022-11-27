@@ -5,4 +5,8 @@ export class ErrorHandler {
       process.exit(1);
     });
   }
+
+  static handle(error: Error) {
+    throw error;
+  }
 }
