@@ -5,12 +5,12 @@ import nodeExternals from "webpack-node-externals";
 
 const config: webpack.Configuration = {
   mode: "development",
-  entry: "./src/main.ts",
+  entry: "./index.ts",
   target: "node",
   externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].js",
+    filename: "index.js",
   },
   resolve: {
     extensions: [".ts", ".js"],

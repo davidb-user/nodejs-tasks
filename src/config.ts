@@ -1,9 +1,8 @@
 import dotenv from "dotenv";
 import Joi from "joi";
-import joi from "joi";
 import { ErrorHandler } from "./errorHandler";
 
-interface EnvironmentVariables {
+export interface EnvironmentVariables {
   PORT: string;
   HOST: string;
 }
@@ -23,7 +22,7 @@ export class Config {
     const schema = Joi.object<EnvironmentVariables>({
       HOST: Joi.string().required(),
       PORT: Joi.string().required(),
-    });
+    }).unknown();
 
     dotenv.config();
 
